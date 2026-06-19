@@ -29,6 +29,41 @@ const guides = [
       "A comprehensive breakdown of composite decking costs by brand and product line, including hidden costs to consider.",
     category: "Buying Guide",
   },
+  {
+    slug: "trex-vs-timbertech-vs-fiberon",
+    title: "Trex vs TimberTech vs Fiberon: Which Decking Brand Is Best?",
+    excerpt:
+      "Head-to-head comparison of the three biggest composite decking brands — pricing, warranties, color options, and real-world performance.",
+    category: "Brand Guide",
+  },
+  {
+    slug: "best-budget-decking-2026",
+    title: "Best Budget Decking Materials in 2026: Quality Under $5/sq ft",
+    excerpt:
+      "Find quality decking under $5 per square foot with real pricing, warranty info, and honest trade-offs for each budget product.",
+    category: "Buying Guide",
+  },
+  {
+    slug: "how-to-install-composite-decking",
+    title: "How to Install Composite Decking: A Step-by-Step DIY Guide",
+    excerpt:
+      "Step-by-step instructions for framing, board layout, hidden fasteners, expansion gaps, and finishing your composite deck project.",
+    category: "DIY Guide",
+  },
+  {
+    slug: "decking-maintenance-guide",
+    title: "Composite & PVC Decking Maintenance Guide",
+    excerpt:
+      "Keep your deck looking new with seasonal cleaning, stain removal, mold prevention, and care tips for composite and PVC decking.",
+    category: "Educational",
+  },
+  {
+    slug: "is-composite-decking-worth-the-cost",
+    title: "Is Composite Decking Worth the Cost? ROI vs Pressure-Treated Wood",
+    excerpt:
+      "A data-driven 20-year cost analysis comparing composite vs pressure-treated wood — upfront costs, maintenance, resale value, and break-even timing.",
+    category: "Buying Guide",
+  },
 ]
 
 export default function GuidesPage() {

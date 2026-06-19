@@ -251,10 +251,10 @@
     }
   },
   {
-    "brand": "timbertech",
-    "id": "timbertech-azek-vintage",
+    "brand": "azek",
+    "id": "azek-vintage",
     "name": "Vintage Collection",
-    "slug": "vintage",
+    "slug": "azek-vintage",
     "collection": "Premium PVC",
     "material_type": "pvc",
     "construction": "capped",
@@ -296,10 +296,10 @@
     }
   },
   {
-    "brand": "timbertech",
-    "id": "timbertech-azek-landmark",
+    "brand": "azek",
+    "id": "azek-landmark",
     "name": "Landmark Collection",
-    "slug": "landmark",
+    "slug": "azek-landmark",
     "collection": "Premium PVC",
     "material_type": "pvc",
     "construction": "capped",
@@ -338,10 +338,10 @@
     }
   },
   {
-    "brand": "timbertech",
-    "id": "timbertech-azek-harvest",
+    "brand": "azek",
+    "id": "azek-harvest",
     "name": "Harvest Collection",
-    "slug": "harvest",
+    "slug": "azek-harvest",
     "collection": "Premium PVC",
     "material_type": "pvc",
     "construction": "capped",
@@ -379,10 +379,10 @@
     }
   },
   {
-    "brand": "timbertech",
-    "id": "timbertech-azek-harvest-plus",
+    "brand": "azek",
+    "id": "azek-harvest-plus",
     "name": "Harvest+ Collection",
-    "slug": "harvest-plus",
+    "slug": "azek-harvest-plus",
     "collection": "Premium PVC",
     "material_type": "pvc",
     "construction": "capped",
