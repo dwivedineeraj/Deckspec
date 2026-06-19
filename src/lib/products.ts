@@ -1,6 +1,5 @@
-import { readFileSync } from "fs"
-import { join } from "path"
-import yaml from "js-yaml"
+import productsData from "@/data/products.json" with { type: "json" }
+import brandsData from "@/data/brands.json" with { type: "json" }
 
 export interface Product {
   brand: string
@@ -43,44 +42,33 @@ export interface Brand {
   color: string
 }
 
-let productsCache: Product[] | null = null
-let brandsCache: Brand[] | null = null
-
-function loadYaml<T>(filename: string): T {
-  const filePath = join(process.cwd(), "data", filename)
-  return yaml.load(readFileSync(filePath, "utf-8")) as T
-}
+const allProducts = productsData as Product[]
+const brands = brandsData as Brand[]
 
 export function getAllProducts(): Product[] {
-  if (!productsCache) {
-    productsCache = loadYaml<Product[]>("products.yaml")
-  }
-  return productsCache
+  return allProducts
 }
 
 export function getProductById(id: string): Product | undefined {
-  return getAllProducts().find((p) => p.id === id)
+  return allProducts.find((p) => p.id === id)
 }
 
 export function getProductsByBrand(brandSlug: string): Product[] {
-  return getAllProducts().filter((p) => p.brand === brandSlug)
+  return allProducts.filter((p) => p.brand === brandSlug)
 }
 
 export function getBrands(): Brand[] {
-  if (!brandsCache) {
-    brandsCache = loadYaml<Brand[]>("brands.yaml")
-  }
-  return brandsCache
+  return brands
 }
 
 export function getBrandBySlug(slug: string): Brand | undefined {
-  return getBrands().find((b) => b.slug === slug)
+  return brands.find((b) => b.slug === slug)
 }
 
 export function getAllBrandSlugs(): string[] {
-  return getBrands().map((b) => b.slug)
+  return brands.map((b) => b.slug)
 }
 
 export function getAllProductSlugs(): string[] {
-  return getAllProducts().map((p) => p.id)
+  return allProducts.map((p) => p.id)
 }

@@ -1,0 +1,89 @@
+[
+  {
+    "id": "trex",
+    "name": "Trex",
+    "slug": "trex",
+    "description": "Trex is the world's largest manufacturer of wood-alternative decking and railing, known for sustainable composite decking made from 95% recycled materials.",
+    "website": "https://www.trex.com",
+    "founded": 1996,
+    "headquarters": "Winchester, Virginia",
+    "material_types": [
+      "composite",
+      "pvc"
+    ],
+    "logo": "/images/brands/trex.svg",
+    "color": "#2d6b38"
+  },
+  {
+    "id": "timbertech",
+    "name": "TimberTech",
+    "slug": "timbertech",
+    "description": "TimberTech offers premium composite and PVC decking with unmatched real wood looks and industry-leading technology like Cool Touch and fire resistance.",
+    "website": "https://www.timbertech.com",
+    "founded": 2003,
+    "headquarters": "Wilmington, Ohio",
+    "material_types": [
+      "composite",
+      "pvc"
+    ],
+    "logo": "/images/brands/timbertech.svg",
+    "color": "#4a4a4a"
+  },
+  {
+    "id": "fiberon",
+    "name": "Fiberon",
+    "slug": "fiberon",
+    "description": "Fiberon manufactures sustainable composite and PVC decking with high recycled content, offering a wide range of colors and price points.",
+    "website": "https://www.fiberondecking.com",
+    "founded": 1997,
+    "headquarters": "New London, North Carolina",
+    "material_types": [
+      "composite",
+      "pvc"
+    ],
+    "logo": "/images/brands/fiberon.svg",
+    "color": "#1a5276"
+  },
+  {
+    "id": "deckorators",
+    "name": "Deckorators",
+    "slug": "deckorators",
+    "description": "Deckorators offers innovative composite decking with patented through-body color technology and wood-like aesthetics.",
+    "website": "https://www.deckorators.com",
+    "founded": 2004,
+    "headquarters": "Bay Minette, Alabama",
+    "material_types": [
+      "composite"
+    ],
+    "logo": "/images/brands/deckorators.svg",
+    "color": "#8b4513"
+  },
+  {
+    "id": "moistureshield",
+    "name": "MoistureShield",
+    "slug": "moistureshield",
+    "description": "MoistureShield is known for its solid core composite decking with superior moisture resistance and zero structural field failures for over 30 years.",
+    "website": "https://www.moistureshield.com",
+    "founded": 1990,
+    "headquarters": "Oxford, Alabama",
+    "material_types": [
+      "composite"
+    ],
+    "logo": "/images/brands/moistureshield.svg",
+    "color": "#1e3a5f"
+  },
+  {
+    "id": "azek",
+    "name": "Azek",
+    "slug": "azek",
+    "description": "Azek is the leading brand of premium PVC decking, offering the most realistic wood looks with superior moisture resistance and Class A fire ratings.",
+    "website": "https://www.azek.com",
+    "founded": 2001,
+    "headquarters": "Wilmington, Ohio",
+    "material_types": [
+      "pvc"
+    ],
+    "logo": "/images/brands/azek.svg",
+    "color": "#2c3e50"
+  }
+]
