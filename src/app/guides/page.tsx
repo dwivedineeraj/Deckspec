@@ -64,6 +64,62 @@ const guides = [
       "A data-driven 20-year cost analysis comparing composite vs pressure-treated wood — upfront costs, maintenance, resale value, and break-even timing.",
     category: "Buying Guide",
   },
+  {
+    slug: "decking-color-trends-2026",
+    title: "Decking Color Trends 2026: What's Hot in Deck Design",
+    excerpt:
+      "Explore 2026's top decking colors from greys and browns to tropical hues, plus how color choice affects heat reflection and surface temperature.",
+    category: "Design Guide",
+  },
+  {
+    slug: "trex-transcend-vs-azek-vintage",
+    title: "Trex Transcend vs Azek Vintage: Premium Decking Face-Off",
+    excerpt:
+      "A head-to-head comparison of the two leading premium decking products — Trex Transcend composite vs Azek Vintage PVC — covering aesthetics, durability, heat, and cost.",
+    category: "Brand Guide",
+  },
+  {
+    slug: "best-decking-for-hot-climates",
+    title: "Best Decking for Hot Climates: Cool Technologies for Summer Comfort",
+    excerpt:
+      "Discover the best decking for hot climates with heat-mitigating technologies like Trex SunComfortable and TimberTech Cool Touch, plus color guidance for cooler decks.",
+    category: "Buying Guide",
+  },
+  {
+    slug: "decking-for-fire-prone-areas",
+    title: "Decking for Fire-Prone Areas: Class A Rated Materials & WUI Compliance",
+    excerpt:
+      "Guide to fire-rated decking for wildfire zones — Class A products from Azek and Trex Refuge, WUI building codes, and ember-resistant construction tips.",
+    category: "Safety Guide",
+  },
+  {
+    slug: "hidden-fasteners-vs-face-screws",
+    title: "Hidden Fasteners vs Face Screws: Which Deck Fastening System Is Best?",
+    excerpt:
+      "Pros and cons of hidden fastener systems versus face screws, including cost differences, installation complexity, and warranty implications for your deck.",
+    category: "DIY Guide",
+  },
+  {
+    slug: "fiberon-vs-trex",
+    title: "Fiberon vs Trex: Honest Comparison",
+    excerpt:
+      "A direct head-to-head comparison of Fiberon and Trex decking — pricing, warranties, color options, recycled content, and which brand fits your project best.",
+    category: "Brand Guide",
+  },
+  {
+    slug: "when-to-buy-decking",
+    title: "When Is the Best Time to Buy Decking?",
+    excerpt:
+      "Seasonal pricing trends for composite and PVC decking, end-of-season sales, new model year price bumps, and when contractors have availability.",
+    category: "Buying Guide",
+  },
+  {
+    slug: "capped-vs-uncapped-composite",
+    title: "Capped vs Uncapped Composite: Does It Matter?",
+    excerpt:
+      "What the cap layer does for moisture, UV, and stain protection — plus when uncapped composite is acceptable for budget builds and covered decks.",
+    category: "Educational",
+  },
 ]
 
 export default function GuidesPage() {
