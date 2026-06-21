@@ -1,10 +1,31 @@
 import Link from "next/link"
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import SiteHeader from "@/components/site-header"
+import SiteHeader from "@/components/SiteHeader"
 import { getBrandBySlug, getProductsByBrand, getBrands } from "@/lib/products"
 
 export function generateStaticParams() {
   return getBrands().map((b) => ({ brand: b.slug }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ brand: string }> }): Promise<Metadata> {
+  const { brand: brandSlug } = await params
+  const brand = getBrandBySlug(brandSlug)
+  if (!brand) return {}
+  return {
+    title: `${brand.name} Decking — Product Lines, Specs & Prices`,
+    description: brand.description,
+    alternates: { canonical: `/brands/${brandSlug}` },
+    openGraph: {
+      title: `${brand.name} Decking — Product Lines, Specs & Prices | DeckCompare`,
+      description: brand.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${brand.name} Decking — Product Lines, Specs & Prices | DeckCompare`,
+      description: brand.description,
+    },
+  }
 }
 
 export default async function BrandPage({ params }: { params: Promise<{ brand: string }> }) {
@@ -14,8 +35,22 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
 
   const products = getProductsByBrand(brandSlug)
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://deckcompare.com" },
+      { "@type": "ListItem", position: 2, name: "Brands", item: "https://deckcompare.com/brands" },
+      { "@type": "ListItem", position: 3, name: brand.name, item: `https://deckcompare.com/brands/${brandSlug}` },
+    ],
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SiteHeader />
       <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="mb-8">

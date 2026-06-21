@@ -14,7 +14,7 @@ export interface Product {
   price_per_sqft: number
   warranty_fade: number
   warranty_stain: number
-  warranty_structural: number
+  warranty_structural: number | string
   colors_count: number
   scratch_resistance: string
   moisture_resistance: string
@@ -65,10 +65,4 @@ export function getBrandBySlug(slug: string): Brand | undefined {
   return brands.find((b) => b.slug === slug)
 }
 
-export function getAllBrandSlugs(): string[] {
-  return brands.map((b) => b.slug)
-}
 
-export function getAllProductSlugs(): string[] {
-  return allProducts.map((p) => p.id)
-}

@@ -1,6 +1,7 @@
 import Link from "next/link"
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import SiteHeader from "@/components/site-header"
+import SiteHeader from "@/components/SiteHeader"
 
 const guideContent: Record<string, { title: string; content: string[] }> = {
   "composite-vs-pvc-decking": {
@@ -351,13 +352,48 @@ export function generateStaticParams() {
   return Object.keys(guideContent).map((slug) => ({ slug }))
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const guide = guideContent[slug]
+  if (!guide) return {}
+  const description = guide.content[0]?.slice(0, 160) ?? ""
+  return {
+    title: guide.title,
+    description,
+    alternates: { canonical: `/guides/${slug}` },
+    openGraph: {
+      title: `${guide.title} | DeckCompare`,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${guide.title} | DeckCompare`,
+      description,
+    },
+  }
+}
+
 export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const guide = guideContent[slug]
   if (!guide) notFound()
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://deckcompare.com" },
+      { "@type": "ListItem", position: 2, name: "Guides", item: "https://deckcompare.com/guides" },
+      { "@type": "ListItem", position: 3, name: guide.title, item: `https://deckcompare.com/guides/${slug}` },
+    ],
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SiteHeader />
       <div className="max-w-3xl mx-auto px-4 py-12">
       <div className="mb-6 text-sm">
@@ -377,7 +413,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           }
           if (paragraph.startsWith("**")) {
             return (
-              <p key={i} className="text-gray-700 mb-4 leading-relaxed">
+              <p key={i} className="font-semibold text-gray-800 mb-4 leading-relaxed">
                 {paragraph}
               </p>
             )

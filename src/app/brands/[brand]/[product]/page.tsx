@@ -1,7 +1,9 @@
 import Link from "next/link"
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import SiteHeader from "@/components/site-header"
+import SiteHeader from "@/components/SiteHeader"
 import { getBrandBySlug, getProductsByBrand, getAllProducts } from "@/lib/products"
+import type { Product } from "@/lib/products"
 import SpecTable from "@/components/SpecTable"
 import CompareTable from "@/components/CompareTable"
 import AffiliateLink from "@/components/AffiliateLink"
@@ -11,6 +13,62 @@ export function generateStaticParams() {
     brand: p.brand,
     product: p.slug,
   }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ brand: string; product: string }> }): Promise<Metadata> {
+  const { brand: brandSlug, product: productSlug } = await params
+  const brand = getBrandBySlug(brandSlug)
+  if (!brand) return {}
+  const products = getProductsByBrand(brandSlug)
+  const product = products.find((p) => p.slug === productSlug)
+  if (!product) return {}
+
+  return {
+    title: `${brand.name} ${product.name} — Specs, Prices & Reviews`,
+    description: product.description,
+    alternates: { canonical: `/brands/${brandSlug}/${productSlug}` },
+    openGraph: {
+      title: `${brand.name} ${product.name} — Specs, Prices & Reviews | DeckCompare`,
+      description: product.description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${brand.name} ${product.name} — Specs, Prices & Reviews | DeckCompare`,
+      description: product.description,
+    },
+  }
+}
+
+function productJsonLd(product: Product, brandName: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${brandName} ${product.name}`,
+    brand: { "@type": "Brand", name: brandName },
+    description: product.description,
+    category: product.material_type,
+    material: product.material_type,
+    color: product.colors.join(", "),
+    offers: {
+      "@type": "Offer",
+      price: product.price_per_sqft,
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+  }
+}
+
+function breadcrumbJsonLd(brandSlug: string, brandName: string, productName: string, productSlug: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://deckcompare.com" },
+      { "@type": "ListItem", position: 2, name: "Brands", item: "https://deckcompare.com/brands" },
+      { "@type": "ListItem", position: 3, name: brandName, item: `https://deckcompare.com/brands/${brandSlug}` },
+      { "@type": "ListItem", position: 4, name: productName, item: `https://deckcompare.com/brands/${brandSlug}/${productSlug}` },
+    ],
+  }
 }
 
 export default async function ProductPage({
@@ -33,6 +91,14 @@ export default async function ProductPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd(product, brand.name)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(brandSlug, brand.name, product.name, productSlug)) }}
+      />
       <SiteHeader />
       <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="mb-6 text-sm">

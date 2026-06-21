@@ -12,13 +12,28 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
+const siteName = "DeckCompare — Compare Decking Materials Side by Side"
+const siteDescription =
+  "Compare composite and PVC decking brands like Trex, TimberTech, Fiberon, Deckorators, and MoistureShield side by side. Find specs, prices, and where to buy."
+
 export const metadata: Metadata = {
   title: {
-    default: "DeckCompare — Compare Decking Materials Side by Side",
+    default: siteName,
     template: "%s | DeckCompare",
   },
-  description:
-    "Compare composite and PVC decking brands like Trex, TimberTech, Fiberon, Deckorators, and MoistureShield side by side. Find specs, prices, and where to buy.",
+  description: siteDescription,
+  openGraph: {
+    title: siteName,
+    description: siteDescription,
+    type: "website",
+    siteName: "DeckCompare",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteName,
+    description: siteDescription,
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

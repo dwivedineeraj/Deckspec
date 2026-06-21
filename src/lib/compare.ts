@@ -15,7 +15,7 @@ const specFields: { label: string; key: keyof Product; format?: (product: Produc
   { label: "Price per sq ft", key: "price_per_sqft", format: (p) => `$${p.price_per_sqft.toFixed(2)}` },
   { label: "Warranty (Fade)", key: "warranty_fade", format: (p) => `${p.warranty_fade} years` },
   { label: "Warranty (Stain)", key: "warranty_stain", format: (p) => `${p.warranty_stain} years` },
-  { label: "Warranty (Structural)", key: "warranty_structural", format: (p) => `${p.warranty_structural} years` },
+  { label: "Warranty (Structural)", key: "warranty_structural", format: (p) => typeof p.warranty_structural === "string" ? p.warranty_structural : `${p.warranty_structural} years` },
   { label: "Colors Available", key: "colors_count", format: (p) => String(p.colors_count) },
   { label: "Scratch Resistance", key: "scratch_resistance" },
   { label: "Moisture Resistance", key: "moisture_resistance" },

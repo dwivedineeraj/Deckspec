@@ -1,5 +1,35 @@
 import Link from "next/link"
-import SiteHeader from "@/components/site-header"
+import type { Metadata } from "next"
+import SiteHeader from "@/components/SiteHeader"
+
+export const metadata: Metadata = {
+  title: "Decking Buying Guides & Resources",
+  description:
+    "Educational content to help you make an informed decision about your decking project — composite vs PVC, cost guides, warranty comparisons, and more.",
+  alternates: {
+    canonical: "/guides",
+  },
+  openGraph: {
+    title: "Decking Buying Guides & Resources | DeckCompare",
+    description:
+      "Educational content to help you make an informed decision about your decking project — composite vs PVC, cost guides, warranty comparisons, and more.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Decking Buying Guides & Resources | DeckCompare",
+    description:
+      "Educational content to help you make an informed decision about your decking project — composite vs PVC, cost guides, warranty comparisons, and more.",
+  },
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://deckcompare.com" },
+    { "@type": "ListItem", position: 2, name: "Guides", item: "https://deckcompare.com/guides" },
+  ],
+}
 
 const guides = [
   {
@@ -126,6 +156,10 @@ const guides = [
 export default function GuidesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SiteHeader />
       <div className="max-w-4xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold text-gray-900 mb-2">Buying Guides & Resources</h1>

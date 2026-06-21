@@ -10,7 +10,7 @@ export default function SpecTable({ product }: { product: Product }) {
     ["Price per sq ft", `$${product.price_per_sqft.toFixed(2)}`],
     ["Warranty (Fade)", `${product.warranty_fade} years`],
     ["Warranty (Stain)", `${product.warranty_stain} years`],
-    ["Warranty (Structural)", `${product.warranty_structural} years`],
+    ["Warranty (Structural)", typeof product.warranty_structural === "string" ? product.warranty_structural : `${product.warranty_structural} years`],
     ["Colors Available", product.colors_count],
     ["Scratch Resistance", product.scratch_resistance],
     ["Moisture Resistance", product.moisture_resistance],
