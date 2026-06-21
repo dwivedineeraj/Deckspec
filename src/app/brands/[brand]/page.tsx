@@ -59,12 +59,12 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
         </Link>
       </div>
       <div className="flex items-center gap-4 mb-4">
-        <div
-          className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-xl"
-          style={{ backgroundColor: brand.color }}
-        >
-          {brand.name[0]}
-        </div>
+        <img
+          src={`/images/brands/${brandSlug}.svg`}
+          alt={brand.name}
+          loading="lazy"
+          className="h-14 w-auto"
+        />
         <div>
           <h1 className="text-3xl font-bold text-gray-900">{brand.name}</h1>
           <p className="text-sm text-gray-500">

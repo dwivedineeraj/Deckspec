@@ -58,12 +58,13 @@ export default function CompareContent() {
       </div>
 
       {selected.length >= 2 ? (
-        <div className="bg-white border border-gray-200 rounded-xl overflow-x-auto">
+        <div className="bg-white border border-gray-200 rounded-xl">
           <CompareTable products={selected} />
         </div>
       ) : (
-        <div className="text-center py-16 text-gray-400">
-          <p className="text-lg">Select at least 2 products to compare</p>
+        <div className="text-center py-20">
+          <p className="text-lg text-gray-500 mb-2">Select at least 2 products to compare</p>
+          <p className="text-sm text-gray-400">Choose products from the dropdowns above to see a side-by-side comparison.</p>
         </div>
       )}
     </div>

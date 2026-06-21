@@ -114,12 +114,12 @@ export default async function ProductPage({
       </div>
 
       <div className="flex items-center gap-4 mb-6">
-        <div
-          className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-lg"
-          style={{ backgroundColor: brand.color }}
-        >
-          {brand.name[0]}
-        </div>
+        <img
+          src={`/images/brands/${brandSlug}.svg`}
+          alt={brand.name}
+          loading="lazy"
+          className="h-12 w-auto"
+        />
         <div>
           <h1 className="text-3xl font-bold text-gray-900">{brand.name} {product.name}</h1>
           <p className="text-gray-500 text-sm capitalize">{product.collection} &middot; {product.material_type} decking</p>
@@ -163,7 +163,7 @@ export default async function ProductPage({
       {similar.length > 0 && (
         <div className="mb-12">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Compare with Similar Products</h2>
-          <div className="bg-white border border-gray-200 rounded-xl overflow-x-auto">
+          <div className="bg-white border border-gray-200 rounded-xl">
             <CompareTable products={[product, ...similar]} />
           </div>
         </div>

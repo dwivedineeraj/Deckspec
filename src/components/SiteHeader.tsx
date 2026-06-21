@@ -8,13 +8,13 @@ export default function SiteHeader() {
           DeckCompare
         </Link>
         <nav className="flex items-center gap-6 text-sm font-medium text-gray-600">
-          <Link href="/brands" className="hover:text-gray-900 transition-colors">
+          <Link href="/brands" prefetch={true} className="hover:text-gray-900 transition-colors">
             Brands
           </Link>
-          <Link href="/compare" className="hover:text-gray-900 transition-colors">
+          <Link href="/compare" prefetch={true} className="hover:text-gray-900 transition-colors">
             Compare
           </Link>
-          <Link href="/guides" className="hover:text-gray-900 transition-colors">
+          <Link href="/guides" prefetch={true} className="hover:text-gray-900 transition-colors">
             Guides
           </Link>
         </nav>

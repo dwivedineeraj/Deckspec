@@ -21,11 +21,12 @@ export default function ProductCard({ product, selected, compareDisabled, onTogg
     >
       <div className="p-4 flex flex-col gap-2.5">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-semibold uppercase tracking-wider text-white px-2 py-0.5 rounded"
-            style={{ backgroundColor: getBrandColor(product.brand) }}
-          >
-            {product.brand}
-          </span>
+          <img
+            src={`/images/brands/${product.brand}.svg`}
+            alt={product.brand}
+            loading="lazy"
+            className="h-6 w-auto"
+          />
           {product.colors_count > 0 && (
             <span className="text-xs text-gray-500">{product.colors_count} colors</span>
           )}
@@ -76,14 +77,3 @@ export default function ProductCard({ product, selected, compareDisabled, onTogg
   )
 }
 
-function getBrandColor(slug: string): string {
-  const colors: Record<string, string> = {
-    trex: "#2d6b38",
-    timbertech: "#4a4a4a",
-    fiberon: "#1a5276",
-    deckorators: "#8b4513",
-    moistureshield: "#1e3a5f",
-    azek: "#2c3e50",
-  }
-  return colors[slug] ?? "#6b7280"
-}
