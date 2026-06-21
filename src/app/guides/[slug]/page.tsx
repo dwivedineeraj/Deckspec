@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import SiteHeader from "@/components/site-header"
 
 const guideContent: Record<string, { title: string; content: string[] }> = {
   "composite-vs-pvc-decking": {
@@ -356,7 +357,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   if (!guide) notFound()
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
+    <>
+      <SiteHeader />
+      <div className="max-w-3xl mx-auto px-4 py-12">
       <div className="mb-6 text-sm">
         <Link href="/guides" className="text-blue-600 hover:text-blue-700">
           &larr; All Guides
@@ -392,5 +395,6 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         </Link>
       </div>
     </div>
+    </>
   )
 }

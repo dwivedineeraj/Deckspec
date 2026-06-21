@@ -1,61 +1,35 @@
 "use client"
 
-import { useState, useMemo, useCallback } from "react"
-import Fuse from "fuse.js"
-import { Product } from "@/lib/products"
-import Link from "next/link"
-
 interface SearchBarProps {
-  products: Product[]
+  value: string
+  onChange: (value: string) => void
 }
 
-export default function SearchBar({ products }: SearchBarProps) {
-  const [query, setQuery] = useState("")
-  const [showResults, setShowResults] = useState(false)
-
-  const fuse = useMemo(
-    () =>
-      new Fuse(products, {
-        keys: ["name", "brand", "collection", "description", "material_type"],
-        threshold: 0.4,
-      }),
-    [products],
-  )
-
-  const results = useMemo(() => {
-    if (!query.trim()) return []
-    return fuse.search(query).slice(0, 8)
-  }, [query, fuse])
-
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value)
-    setShowResults(true)
-  }, [])
-
+export default function SearchBar({ value, onChange }: SearchBarProps) {
   return (
-    <div className="relative w-full max-w-lg mx-auto">
+    <div className="relative w-full max-w-lg">
+      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
       <input
         type="text"
-        value={query}
-        onChange={handleChange}
-        onFocus={() => setShowResults(true)}
-        onBlur={() => setTimeout(() => setShowResults(false), 200)}
-        placeholder="Search decking products..."
-        className="w-full px-4 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder="Search by name, brand, or feature…"
+        className="w-full pl-10 pr-10 py-2.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
       />
-      {showResults && results.length > 0 && (
-        <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
-          {results.map(({ item }) => (
-            <Link
-              key={item.id}
-              href={`/brands/${item.brand}/${item.slug}`}
-              className="block px-4 py-2.5 text-sm hover:bg-gray-50 transition-colors"
-            >
-              <span className="font-medium text-gray-900">{item.name}</span>
-              <span className="text-gray-500 ml-2 capitalize">— {item.brand}</span>
-            </Link>
-          ))}
-        </div>
+      {value && (
+        <button
+          onClick={() => onChange("")}
+          className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600"
+          aria-label="Clear search"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       )}
     </div>
   )

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import SiteHeader from "@/components/site-header"
 
 const guides = [
   {
@@ -124,7 +125,9 @@ const guides = [
 
 export default function GuidesPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <>
+      <SiteHeader />
+      <div className="max-w-4xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold text-gray-900 mb-2">Buying Guides & Resources</h1>
       <p className="text-gray-600 mb-8">
         Educational content to help you make an informed decision about your decking project.
@@ -146,5 +149,6 @@ export default function GuidesPage() {
         ))}
       </div>
     </div>
+    </>
   )
 }

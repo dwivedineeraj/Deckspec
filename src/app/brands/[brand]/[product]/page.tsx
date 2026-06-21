@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import SiteHeader from "@/components/site-header"
 import { getBrandBySlug, getProductsByBrand, getAllProducts } from "@/lib/products"
 import SpecTable from "@/components/SpecTable"
 import CompareTable from "@/components/CompareTable"
@@ -31,7 +32,9 @@ export default async function ProductPage({
     .slice(0, 3)
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <>
+      <SiteHeader />
+      <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="mb-6 text-sm">
         <Link href="/brands" className="text-blue-600 hover:text-blue-700">
           Brands
@@ -109,5 +112,6 @@ export default async function ProductPage({
         </Link>
       </div>
     </div>
+    </>
   )
 }

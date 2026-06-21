@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import SiteHeader from "@/components/site-header"
 import { getBrandBySlug, getProductsByBrand, getBrands } from "@/lib/products"
 
 export function generateStaticParams() {
@@ -14,7 +15,9 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
   const products = getProductsByBrand(brandSlug)
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <>
+      <SiteHeader />
+      <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="mb-8">
         <Link href="/brands" className="text-sm text-blue-600 hover:text-blue-700">
           &larr; All Brands
@@ -67,5 +70,6 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
         ))}
       </div>
     </div>
+    </>
   )
 }

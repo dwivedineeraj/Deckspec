@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation"
 import { getAllProducts, getProductById } from "@/lib/products"
 import CompareTable from "@/components/CompareTable"
+import SiteHeader from "@/components/site-header"
 import { Suspense } from "react"
 
 function CompareContent() {
@@ -14,7 +15,9 @@ function CompareContent() {
   const selected = ids.map((id) => getProductById(id)).filter((p): p is NonNullable<typeof p> => p != null)
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <>
+      <SiteHeader />
+      <div className="max-w-7xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold text-gray-900 mb-2">Compare Decking Products</h1>
       <p className="text-gray-600 mb-8">
         Select 2-4 products below to compare them side by side across all specifications.
@@ -65,6 +68,7 @@ function CompareContent() {
         </div>
       )}
     </div>
+    </>
   )
 }
 
