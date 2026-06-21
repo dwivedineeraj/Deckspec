@@ -131,22 +131,38 @@ export default function FilterSidebar({
 
         <div>
           <p className="text-sm font-semibold text-gray-700 mb-2">Price Range</p>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-between text-sm text-gray-500 mb-1">
+            <span>${filters.priceMin ?? 2}</span>
+            <span>${filters.priceMax ?? 10}</span>
+          </div>
+          <div className="relative h-6">
             <input
-              type="number"
-              placeholder="Min"
-              value={filters.priceMin ?? ""}
-              onChange={(e) => setFilter("priceMin", e.target.value ? Number(e.target.value) : null)}
-              className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              type="range"
+              min={2}
+              max={10}
+              step={0.5}
+              value={filters.priceMin ?? 2}
+              onChange={(e) => {
+                const v = Number(e.target.value)
+                setFilter("priceMin", v)
+                if (filters.priceMax !== null && v > filters.priceMax) setFilter("priceMax", v)
+              }}
+              className="absolute inset-0 w-full h-2 top-2 appearance-none bg-transparent pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-blue-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:bg-blue-600 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-track]:appearance-none"
             />
-            <span className="text-gray-400">—</span>
             <input
-              type="number"
-              placeholder="Max"
-              value={filters.priceMax ?? ""}
-              onChange={(e) => setFilter("priceMax", e.target.value ? Number(e.target.value) : null)}
-              className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              type="range"
+              min={2}
+              max={10}
+              step={0.5}
+              value={filters.priceMax ?? 10}
+              onChange={(e) => {
+                const v = Number(e.target.value)
+                setFilter("priceMax", v)
+                if (filters.priceMin !== null && v < filters.priceMin) setFilter("priceMin", v)
+              }}
+              className="absolute inset-0 w-full h-2 top-2 appearance-none bg-transparent pointer-events-none [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-blue-600 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:cursor-pointer [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:bg-blue-600 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-track]:appearance-none"
             />
+            <div className="absolute top-[7px] left-0 right-0 h-[6px] bg-gray-200 rounded-full" aria-hidden />
           </div>
         </div>
 

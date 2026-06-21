@@ -110,6 +110,7 @@ export function useFilters() {
 
   const [filters, setFilters] = useState<FilterState>(() => parseFiltersFromParams(searchParams))
   const [searchQuery, setSearchQuery] = useState(() => searchParams.get("q") ?? "")
+  const [sortBy, setSortBy] = useState<string>("name-asc")
   const [compareIds, setCompareIds] = useState<string[]>([])
 
   const initialRender = useRef(true)
@@ -154,8 +155,28 @@ export function useFilters() {
       result = result.filter((p) => searchedIds.has(p.id))
     }
 
+    result.sort((a, b) => {
+      switch (sortBy) {
+        case "name-asc":
+          return a.name.localeCompare(b.name)
+        case "price-asc":
+          return a.price_per_sqft - b.price_per_sqft
+        case "price-desc":
+          return b.price_per_sqft - a.price_per_sqft
+        case "warranty-best": {
+          const wa = typeof a.warranty_structural === "number" ? a.warranty_structural : 0
+          const wb = typeof b.warranty_structural === "number" ? b.warranty_structural : 0
+          return wb - wa || b.warranty_fade - a.warranty_fade
+        }
+        case "scratch-best":
+          return b.slip_resistance_crof - a.slip_resistance_crof
+        default:
+          return 0
+      }
+    })
+
     return result
-  }, [allProducts, filters, searchQuery, fuse])
+  }, [allProducts, filters, searchQuery, fuse, sortBy])
 
   const setFilter = useCallback(<K extends keyof FilterState>(key: K, value: FilterState[K]) => {
     setFilters((prev) => ({ ...prev, [key]: value }))
@@ -206,6 +227,8 @@ export function useFilters() {
     clearFilters,
     searchQuery,
     setSearchQuery,
+    sortBy,
+    setSortBy,
     compareIds,
     toggleCompare,
     clearCompare,

@@ -17,6 +17,8 @@ export default function HomeContent() {
     clearFilters,
     searchQuery,
     setSearchQuery,
+    sortBy,
+    setSortBy,
     compareIds,
     toggleCompare,
     clearCompare,
@@ -79,9 +81,25 @@ export default function HomeContent() {
         <main className="flex-1 min-w-0 px-4 py-6">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-lg font-semibold text-gray-900">Composite &amp; PVC Decking Products</h1>
-            <p className="text-sm text-gray-500">
-              Showing {filteredProducts.length} of {allProducts.length} products
-            </p>
+            <div className="flex items-center gap-3">
+              <label className="flex items-center gap-1.5 text-sm text-gray-600">
+                <span className="sr-only">Sort by</span>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="px-2.5 py-1.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="name-asc">Name (A-Z)</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="warranty-best">Warranty: Best First</option>
+                  <option value="scratch-best">Scratch Resistance: Best First</option>
+                </select>
+              </label>
+              <p className="text-sm text-gray-500">
+                Showing {filteredProducts.length} of {allProducts.length} products
+              </p>
+            </div>
           </div>
 
           <h2 className="sr-only">Product List</h2>
