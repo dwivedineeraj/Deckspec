@@ -17,10 +17,6 @@ export default function PrivacyPage() {
         <p>
           CompositeChoice ("we," "our," "us") operates the website at compositechoice.com. We collect minimal information to operate and improve our service.
         </p>
-        <h3>Automatically Collected Data</h3>
-        <p>
-          We use Google Analytics to understand how visitors use our site. This collects anonymized data including pages visited, time spent, browser type, and general geographic region. No personally identifiable information is collected through analytics.
-        </p>
         <h3>Affiliate Links</h3>
         <p>
           Our site contains affiliate links to Amazon, Home Depot, and Lowe's. When you click these links and make a purchase, the retailer may track the referral through cookies. We do not receive any personal information from these transactions.
@@ -28,7 +24,7 @@ export default function PrivacyPage() {
 
         <h2>Cookies</h2>
         <p>
-          Google Analytics uses cookies to distinguish unique visitors. Affiliate programs may set cookies to attribute sales. You can disable cookies in your browser settings, though this may affect site functionality.
+          Affiliate programs may set cookies to attribute sales. You can disable cookies in your browser settings, though this may affect site functionality.
         </p>
 
         <h2>Third-Party Disclosure</h2>

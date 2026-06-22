@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
-import Script from "next/script"
 import ErrorBoundary from "@/components/ErrorBoundary"
 import SiteFooter from "@/components/SiteFooter"
 import "./globals.css"
@@ -52,14 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="prefetch" href="/guides" />
       </head>
       <body className="min-h-full bg-white text-gray-900">
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive" />
-            <Script id="ga-init" strategy="afterInteractive">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA_ID}');`}
-            </Script>
-          </>
-        )}
         <main className="flex-1">
           <ErrorBoundary>{children}</ErrorBoundary>
         </main>
