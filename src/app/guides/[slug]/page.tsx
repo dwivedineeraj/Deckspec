@@ -1,5 +1,7 @@
 import Link from "next/link"
 import type { Metadata } from "next"
+import Markdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 import { notFound } from "next/navigation"
 import SiteHeader from "@/components/SiteHeader"
 
@@ -430,27 +432,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       </div>
       <h1 className="text-3xl font-bold text-gray-900 mb-8">{guide.title}</h1>
       <div className="prose prose-gray max-w-none">
-        {guide.content.map((paragraph, i) => {
-          if (paragraph.startsWith("## ")) {
-            return (
-              <h2 key={i} className="text-xl font-semibold text-gray-900 mt-8 mb-4">
-                {paragraph.replace("## ", "")}
-              </h2>
-            )
-          }
-          if (paragraph.startsWith("**")) {
-            return (
-              <p key={i} className="font-semibold text-gray-800 mb-4 leading-relaxed">
-                {paragraph}
-              </p>
-            )
-          }
-          return (
-            <p key={i} className="text-gray-700 mb-4 leading-relaxed">
-              {paragraph}
-            </p>
-          )
-        })}
+        <Markdown remarkPlugins={[remarkGfm]}>
+          {guide.content.join("\n\n")}
+        </Markdown>
       </div>
       <div className="mt-12 pt-8 border-t border-gray-200">
         <Link href="/compare" className="text-blue-600 hover:text-blue-700 font-medium">

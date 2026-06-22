@@ -17,6 +17,8 @@ const siteName = "CompositeChoice — Compare Decking Materials Side by Side"
 const siteDescription =
   "Compare composite and PVC decking brands like Trex, TimberTech, Fiberon, Deckorators, and MoistureShield side by side. Find specs, prices, and where to buy."
 
+const ogImage = { url: "/og-image.png", width: 1200, height: 630 }
+
 export const metadata: Metadata = {
   title: {
     default: siteName,
@@ -29,11 +31,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "CompositeChoice",
     locale: "en_US",
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: siteName,
     description: siteDescription,
+    images: [ogImage],
   },
 }
 
