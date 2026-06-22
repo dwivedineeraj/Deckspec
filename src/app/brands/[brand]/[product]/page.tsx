@@ -63,10 +63,10 @@ function breadcrumbJsonLd(brandSlug: string, brandName: string, productName: str
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://deckcompare.com" },
-      { "@type": "ListItem", position: 2, name: "Brands", item: "https://deckcompare.com/brands" },
-      { "@type": "ListItem", position: 3, name: brandName, item: `https://deckcompare.com/brands/${brandSlug}` },
-      { "@type": "ListItem", position: 4, name: productName, item: `https://deckcompare.com/brands/${brandSlug}/${productSlug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://compositechoice.com" },
+      { "@type": "ListItem", position: 2, name: "Brands", item: "https://compositechoice.com/brands" },
+      { "@type": "ListItem", position: 3, name: brandName, item: `https://compositechoice.com/brands/${brandSlug}` },
+      { "@type": "ListItem", position: 4, name: productName, item: `https://compositechoice.com/brands/${brandSlug}/${productSlug}` },
     ],
   }
 }
