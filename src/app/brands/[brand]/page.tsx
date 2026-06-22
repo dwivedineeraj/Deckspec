@@ -17,12 +17,12 @@ export async function generateMetadata({ params }: { params: Promise<{ brand: st
     description: brand.description,
     alternates: { canonical: `/brands/${brandSlug}` },
     openGraph: {
-      title: `${brand.name} Decking — Product Lines, Specs & Prices | DeckCompare`,
+      title: `${brand.name} Decking — Product Lines, Specs & Prices | CompositeChoice`,
       description: brand.description,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${brand.name} Decking — Product Lines, Specs & Prices | DeckCompare`,
+      title: `${brand.name} Decking — Product Lines, Specs & Prices | CompositeChoice`,
       description: brand.description,
     },
   }
@@ -39,9 +39,9 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://deckcompare.com" },
-      { "@type": "ListItem", position: 2, name: "Brands", item: "https://deckcompare.com/brands" },
-      { "@type": "ListItem", position: 3, name: brand.name, item: `https://deckcompare.com/brands/${brandSlug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://compositechoice.com" },
+      { "@type": "ListItem", position: 2, name: "Brands", item: "https://compositechoice.com/brands" },
+      { "@type": "ListItem", position: 3, name: brand.name, item: `https://compositechoice.com/brands/${brandSlug}` },
     ],
   }
 

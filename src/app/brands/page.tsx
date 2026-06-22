@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     canonical: "/brands",
   },
   openGraph: {
-    title: "Decking Brands — Compare Composite & PVC Manufacturers | DeckCompare",
+    title: "Decking Brands — Compare Composite & PVC Manufacturers | CompositeChoice",
     description:
       "Browse decking products by brand. Compare Trex, TimberTech, Fiberon, Deckorators, MoistureShield, and Azek side by side.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Decking Brands — Compare Composite & PVC Manufacturers | DeckCompare",
+    title: "Decking Brands — Compare Composite & PVC Manufacturers | CompositeChoice",
     description:
       "Browse decking products by brand. Compare Trex, TimberTech, Fiberon, Deckorators, MoistureShield, and Azek side by side.",
   },
@@ -28,8 +28,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://deckcompare.com" },
-    { "@type": "ListItem", position: 2, name: "Brands", item: "https://deckcompare.com/brands" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://compositechoice.com" },
+    { "@type": "ListItem", position: 2, name: "Brands", item: "https://compositechoice.com/brands" },
   ],
 }
 

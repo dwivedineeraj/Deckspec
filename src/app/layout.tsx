@@ -13,21 +13,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
-const siteName = "DeckCompare — Compare Decking Materials Side by Side"
+const siteName = "CompositeChoice — Compare Decking Materials Side by Side"
 const siteDescription =
   "Compare composite and PVC decking brands like Trex, TimberTech, Fiberon, Deckorators, and MoistureShield side by side. Find specs, prices, and where to buy."
 
 export const metadata: Metadata = {
   title: {
     default: siteName,
-    template: "%s | DeckCompare",
+    template: "%s | CompositeChoice",
   },
   description: siteDescription,
   openGraph: {
     title: siteName,
     description: siteDescription,
     type: "website",
-    siteName: "DeckCompare",
+    siteName: "CompositeChoice",
     locale: "en_US",
   },
   twitter: {

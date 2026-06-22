@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: { params: Promise<{ brand: st
     description: product.description,
     alternates: { canonical: `/brands/${brandSlug}/${productSlug}` },
     openGraph: {
-      title: `${brand.name} ${product.name} — Specs, Prices & Reviews | DeckCompare`,
+      title: `${brand.name} ${product.name} — Specs, Prices & Reviews | CompositeChoice`,
       description: product.description,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${brand.name} ${product.name} — Specs, Prices & Reviews | DeckCompare`,
+      title: `${brand.name} ${product.name} — Specs, Prices & Reviews | CompositeChoice`,
       description: product.description,
     },
   }
@@ -129,18 +129,19 @@ export default async function ProductPage({
       <p className="text-gray-600 max-w-3xl mb-8">{product.description}</p>
 
       <div className="flex flex-wrap gap-3 mb-10">
-        {product.affiliate_links.homedepot && (
-          <AffiliateLink href={product.affiliate_links.homedepot} store="homedepot" />
-        )}
-        {product.affiliate_links.lowes && (
-          <AffiliateLink href={product.affiliate_links.lowes} store="lowes" />
-        )}
         {product.affiliate_links.amazon && (
           <AffiliateLink href={product.affiliate_links.amazon} store="amazon" />
         )}
-        {!product.affiliate_links.homedepot && !product.affiliate_links.lowes && !product.affiliate_links.amazon && (
+        {!product.affiliate_links.amazon && product.affiliate_links.homedepot && (
+          <AffiliateLink href={product.affiliate_links.homedepot} store="homedepot" />
+        )}
+        {!product.affiliate_links.amazon && product.affiliate_links.lowes && (
+          <AffiliateLink href={product.affiliate_links.lowes} store="lowes" />
+        )}
+        {!product.affiliate_links.amazon && !product.affiliate_links.homedepot && !product.affiliate_links.lowes && (
           <p className="text-sm text-gray-400 italic">Check manufacturer website for purchasing options</p>
         )}
+        <p className="text-xs text-gray-400 w-full">*Prices vary by retailer. Affiliate commissions support this site.</p>
       </div>
 
       <h2 className="text-xl font-semibold text-gray-900 mb-4">Specifications</h2>

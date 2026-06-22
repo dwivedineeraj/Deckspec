@@ -64,13 +64,14 @@ export default function ProductCard({ product, selected, compareDisabled, onTogg
             Compare
           </label>
 
-          {product.affiliate_links.homedepot && (
-            <div onClick={(e) => e.stopPropagation()}>
-              <AffiliateLink href={product.affiliate_links.homedepot} store="homedepot">
-                Shop &rarr;
-              </AffiliateLink>
-            </div>
-          )}
+          <div onClick={(e) => e.stopPropagation()}>
+            <AffiliateLink
+              href={product.affiliate_links.amazon || product.affiliate_links.homedepot || product.affiliate_links.lowes || "#"}
+              store={product.affiliate_links.amazon ? "amazon" : product.affiliate_links.homedepot ? "homedepot" : "lowes"}
+            >
+              Shop on {product.affiliate_links.amazon ? "Amazon" : product.affiliate_links.homedepot ? "Home Depot" : "Lowe's"} &rarr;
+            </AffiliateLink>
+          </div>
         </div>
       </div>
     </Link>

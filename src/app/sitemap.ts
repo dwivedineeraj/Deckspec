@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next"
 
 export const dynamic = "force-static"
 
-const baseUrl = "https://deckcompare.com"
+const baseUrl = "https://compositechoice.com"
 
 const guideSlugs = [
   "composite-vs-pvc-decking",

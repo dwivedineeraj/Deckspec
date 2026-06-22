@@ -5,7 +5,7 @@ export default function SiteHeader() {
     <header className="border-b border-gray-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold text-gray-900">
-          DeckCompare
+          CompositeChoice
         </Link>
         <nav className="flex items-center gap-6 text-sm font-medium text-gray-600">
           <Link href="/brands" prefetch={true} className="hover:text-gray-900 transition-colors">

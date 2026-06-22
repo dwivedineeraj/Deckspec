@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     canonical: "/compare",
   },
   openGraph: {
-    title: "Compare Decking Products Side by Side | DeckCompare",
+    title: "Compare Decking Products Side by Side | CompositeChoice",
     description:
       "Select 2-4 composite or PVC decking products and compare them across all specifications including price, warranty, colors, and material features.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Compare Decking Products Side by Side | DeckCompare",
+    title: "Compare Decking Products Side by Side | CompositeChoice",
     description:
       "Select 2-4 composite or PVC decking products and compare them across all specifications including price, warranty, colors, and material features.",
   },
@@ -26,8 +26,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://deckcompare.com" },
-    { "@type": "ListItem", position: 2, name: "Compare", item: "https://deckcompare.com/compare" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://compositechoice.com" },
+    { "@type": "ListItem", position: 2, name: "Compare", item: "https://compositechoice.com/compare" },
   ],
 }
 

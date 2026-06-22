@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     canonical: "/guides",
   },
   openGraph: {
-    title: "Decking Buying Guides & Resources | DeckCompare",
+    title: "Decking Buying Guides & Resources | CompositeChoice",
     description:
       "Educational content to help you make an informed decision about your decking project — composite vs PVC, cost guides, warranty comparisons, and more.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Decking Buying Guides & Resources | DeckCompare",
+    title: "Decking Buying Guides & Resources | CompositeChoice",
     description:
       "Educational content to help you make an informed decision about your decking project — composite vs PVC, cost guides, warranty comparisons, and more.",
   },
@@ -26,8 +26,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://deckcompare.com" },
-    { "@type": "ListItem", position: 2, name: "Guides", item: "https://deckcompare.com/guides" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://compositechoice.com" },
+    { "@type": "ListItem", position: 2, name: "Guides", item: "https://compositechoice.com/guides" },
   ],
 }
 

@@ -389,12 +389,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description,
     alternates: { canonical: `/guides/${slug}` },
     openGraph: {
-      title: `${guide.title} | DeckCompare`,
+      title: `${guide.title} | CompositeChoice`,
       description,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${guide.title} | DeckCompare`,
+      title: `${guide.title} | CompositeChoice`,
       description,
     },
   }
@@ -409,9 +409,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://deckcompare.com" },
-      { "@type": "ListItem", position: 2, name: "Guides", item: "https://deckcompare.com/guides" },
-      { "@type": "ListItem", position: 3, name: guide.title, item: `https://deckcompare.com/guides/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://compositechoice.com" },
+      { "@type": "ListItem", position: 2, name: "Guides", item: "https://compositechoice.com/guides" },
+      { "@type": "ListItem", position: 3, name: guide.title, item: `https://compositechoice.com/guides/${slug}` },
     ],
   }
 

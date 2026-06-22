@@ -47,9 +47,9 @@ export default function HomeContent() {
     <div className="min-h-screen bg-gray-50">
       <div className="sticky top-0 z-30 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
-          <h1 className="sr-only">DeckCompare — Decking Material Comparison</h1>
+          <h1 className="sr-only">CompositeChoice — Decking Material Comparison</h1>
           <a href="/" className="text-xl font-bold text-gray-900 flex-shrink-0">
-            DeckCompare
+            CompositeChoice
           </a>
 
           <div className="flex-1 flex justify-center">
