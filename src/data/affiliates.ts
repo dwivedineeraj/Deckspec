@@ -1,5 +1,5 @@
 export const affiliateIds: Record<string, string> = {
-  amazon: "morebitsolutions",
+  amazon: "morebitsoluti-20",
   homedepot: "deckcompare",
   lowes: "deckcompare",
 }
