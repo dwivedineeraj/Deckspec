@@ -65,7 +65,7 @@ export default function ProductCard({ product, selected, compareDisabled, onTogg
           </label>
 
           {product.affiliate_links.homedepot && (
-            <div onClick={(e) => e.preventDefault()}>
+            <div onClick={(e) => e.stopPropagation()}>
               <AffiliateLink href={product.affiliate_links.homedepot} store="homedepot">
                 Shop &rarr;
               </AffiliateLink>

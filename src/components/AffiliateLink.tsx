@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { addAffiliateTags } from "@/data/affiliates"
 
 interface AffiliateLinkProps {
@@ -20,13 +19,13 @@ export default function AffiliateLink({ href, store, children }: AffiliateLinkPr
   const trackedHref = addAffiliateTags(href, store)
 
   return (
-    <Link
+    <a
       href={trackedHref}
       target="_blank"
       rel="noopener noreferrer sponsored"
       className={`inline-flex items-center gap-2 px-4 py-2 text-white text-sm font-medium rounded-lg transition-colors ${info.color}`}
     >
       {children || `Buy at ${info.label}`}
-    </Link>
+    </a>
   )
 }
