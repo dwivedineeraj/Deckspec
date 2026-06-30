@@ -49,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="prefetch" href="/brands" />
         <link rel="prefetch" href="/compare" />
         <link rel="prefetch" href="/guides" />
+        <script data-goatcounter="https://compositechoice.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
       </head>
       <body className="min-h-full bg-white text-gray-900">
         <main className="flex-1">
